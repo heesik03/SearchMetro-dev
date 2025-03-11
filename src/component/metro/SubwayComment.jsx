@@ -152,7 +152,7 @@ export function SubwayComment({ query , userip, token}) {
                 </div>
             </form>
             <br />
-            <div className="filter-comment">
+            <div className="filter-button">
                 <p onClick={() => filterComment('likes')}
                     style={{
                         color: selectedFilter === 'likes' ? 'blue' : 'black',

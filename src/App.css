@@ -159,20 +159,20 @@ th {
     color : #feb309;
 }
 
-/* 게시글 정렬 css */
+/* 상하행 , 게시글 정렬 css */
 
-.filter-comment {
+.filter-button {
     display: flex; /* p 요소들이 한 줄에 나열되도록 flexbox 사용 */
     gap: 20px; /* p 태그들 사이에 간격을 추가 */
 }
 
-.filter-comment p {
+.filter-button p , .filter-button h5 {
     cursor: pointer; /* 마우스를 올렸을 때 포인터로 바뀌게 */
     transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* 부드럽게 전환 */
 }
 
-.filter-comment p:hover {
-    font-weight: bold;
+.filter-button p, .filter-button h5:hover{
+    font-weight: bold !important;
 }
 
 /* 추천 버튼 css */
