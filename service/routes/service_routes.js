@@ -46,4 +46,16 @@ router.route("/mypage/admin")
 router.route("/signup")
     .post(postSignUp)
 
+router.post("/error", (req , res) => {
+    try {
+        const { error , stack } = req.body;
+        console.log('React 에러 : ');
+        console.error(`error: ${error}`);
+        console.error(`errorInfo : ${stack}`);
+        res.send({message : '에러 서버 수신 완료!'});
+    } catch (error) {
+        console.error(`클라이언트의 에러를 받는 중 오류가 발생했습니다 : ${error}`);
+    }
+})
+
 module.exports = router;

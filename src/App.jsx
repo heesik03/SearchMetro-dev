@@ -3,13 +3,13 @@ import axios from 'axios';
 import { useState , useEffect , createContext  } from 'react';
 import { Routes, Route } from "react-router-dom";
 import { ErrorBoundary } from "./ErrorBoundary";
-import { Header } from './component/layout/Header';
-import { Footer } from './component/layout/Footer';
-import { Main } from './component/Main';
-import { Search } from './component/Search';
-import { Login } from './component/Login';
-import { SignUp } from './component/SignUp';
-import { MyPage } from './component/MyPage';
+import { Header } from './components/layout/Header';
+import { Footer } from './components/layout/Footer';
+import { Main } from './components/Main';
+import { Search } from './components/Search';
+import { Login } from './components/Login';
+import { SignUp } from './components/SignUp';
+import { MyPage } from './components/MyPage';
 
 export const Context = createContext();
 

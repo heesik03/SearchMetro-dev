@@ -1,5 +1,6 @@
 import React from "react";
-import { ErrorPage } from "./component/ErrorPage";
+import axios from 'axios';
+import { ErrorPage } from "./components/ErrorPage";
 
 export class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -15,6 +16,13 @@ export class ErrorBoundary extends React.Component {
   componentDidCatch(error, errorInfo) {
     // 에러가 발생했을 때 호출되며, 추가적인 에러 정보를 출력
     console.error(`리액트 페이지 에러 : ${error} errorInfo : ${errorInfo}`);
+    this.setState({ error, errorInfo });
+
+    axios.post(`http://localhost:8080/error`, {
+      error: error.toString(),
+      stack: errorInfo.componentStack,
+    }).catch(err => console.error("에러 전송 실패:", err));
+
   }
 
   render() {
