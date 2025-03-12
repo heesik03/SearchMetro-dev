@@ -5,15 +5,19 @@ import { MetroLineColor } from '../../filters/MetroLineColor';
 export function RealtimeMetro({realtimemetroData}) {
     const [printRealtimemetroData , setPrintRealtiemMetroData] = useState([]); // 출력할 실시간 지하철 데이터
     const [isFilteredUpdn, setIsFilteredUpdn] = useState("");
-    const groupRealtimeData = groupedByUpdnLine(realtimemetroData); // 상하행 기준으로 배열에 key 값 부여
-    const metroupdnlineList = Object.keys(groupRealtimeData); // key 값 배열로
+    let groupRealtimeData = '';
+    let metroupdnlineList = '';
+    if (!realtimemetroData.message) { // 데이터가 안 넘어왔을시
+      groupRealtimeData = groupedByUpdnLine(realtimemetroData); // 상하행 기준으로 배열에 key 값 부여
+      metroupdnlineList = Object.keys(groupRealtimeData); // key 값 배열로
+    }
 
     if (realtimemetroData.message) {
         return (
             <div>
-                <h3>{realtimemetroData.code} 에러 발생!</h3>
-                <h3>{realtimemetroData.message}</h3>
-                <h3>{APIfilters[realtimemetroData.code]}</h3>
+                <h4><strong>{realtimemetroData.code} 에러 발생!</strong></h4>
+                <br />
+                <h4>{realtimemetroData.message}  {APIfilters[realtimemetroData.code]}</h4>
                 <hr></hr>
             </div>
         );
@@ -33,7 +37,7 @@ export function RealtimeMetro({realtimemetroData}) {
                   onClick={() => filterRealtimeData(updn)}
                   key={updn}
                   style={{
-                    color: isFilteredUpdn === updn ? 'blue' : 'black',
+                    color: isFilteredUpdn === updn ? '#5EACD1' : 'black',
                     fontWeight: isFilteredUpdn === updn ? 'bold' : 'normal', // fontWeight로 변경
                   }}
                 >

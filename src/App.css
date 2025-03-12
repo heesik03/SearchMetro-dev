@@ -7,6 +7,12 @@
     }
   }
 
+@media (max-width: 600px) {
+    #login-container {
+        margin-bottom : 80% !important;
+    }
+}
+
 /* 에러 페이지 */
 @media (prefers-color-scheme: dark) {
     .custom-bg {
@@ -26,6 +32,11 @@
 
 .custom-bg {
     background: linear-gradient(to right, #e2e8f0, #e5e7eb);
+}
+
+#mainpage-searchBar { /* 메인페이지 검색창 */
+    margin-top : 10%;
+    margin-bottom : 10%;
 }
 
 #password-change div { /* 마이페이지 비밀번호 변경 */
@@ -147,7 +158,7 @@ th {
 
 /* 별점 css */
 .star , .star-full {
-    font-size : 30px;
+    font-size : 1.5rem;
     cursor : pointer;
 }
 
@@ -171,10 +182,19 @@ th {
     transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* 부드럽게 전환 */
 }
 
-.filter-button p, .filter-button h5:hover{
+.filter-button p:hover, .filter-button h5:hover{
     font-weight: bold !important;
 }
 
+.filter-button h5 {
+    border: 1px solid #ced4da;
+    border-radius: 15px;
+    padding: 7px 7px 7px 7px; /* 테투리와 글씨 사이의 여백 */
+}
+
+.filter-button h5:hover {
+    background-color: #dee2e6;
+}
 /* 추천 버튼 css */
 
 .liked-button {
@@ -185,14 +205,19 @@ th {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin: 0 10px 12px 14px;
- }
-  
+    margin: 0 10px 16px 14px;
+}
+
 .liked-button svg {
     width: 16px;
     height: 16px;
     fill: currentColor;
 }
+
+.liked-button span {
+    margin-left: 7px;  /* 텍스트와 아이콘 사이의 간격 */
+}
+
   
 
 .liked-button:hover svg { /* 버튼 호버 효과 (옵션) */

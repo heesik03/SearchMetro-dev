@@ -10,12 +10,7 @@ export function SubwayAddress({ subwayname }) {
       }, [subwayname]); 
     
     if (!address) {
-        return (
-            <>
-                <h4>역 주소, 전화번호 정보가 없습니다.</h4>
-                <br />
-            </>
-        )
+        return <h5>* 역 주소, 전화번호 정보가 없는 역입니다.</h5>        
     }
 
     return (

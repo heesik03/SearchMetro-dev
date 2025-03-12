@@ -16,6 +16,7 @@ export function Search({token, userip}) {
   const location = useLocation();  // 현재 URL 정보를 가져옴
   const [query, setQuery] = useState('');
   const [realtimemetroData, setRealtimeMetroData] = useState([]);
+  const [subwayInfo, setSubwayInfo] = useState([]);
   const [subwayid , setSubwayID] = useState('');
   const [subwayname, setSubwayname] = useState('');
   const [subwayline, setSubwayline] = useState([]);
@@ -38,6 +39,7 @@ export function Search({token, userip}) {
         
       const responseSearch = await axios.get(`http://localhost:8080/search?query=${query}`);
       setRealtimeMetroData(responseSearch.data.realtime);
+      setSubwayInfo(responseSearch.data.subwayinfo)
       setSubwayID(responseSearch.data.id);
       setSubwayname(responseSearch.data.name)
       const cleanSubwayline = responseSearch.data.line.map(item => {
@@ -46,7 +48,6 @@ export function Search({token, userip}) {
           LINE_NUM: item.LINE_NUM.replace(/^0/, '') // 맨 앞의 0 제거
         };
       });
-      
       setSubwayline(cleanSubwayline);
     } catch (error) {
       console.error(`sendRequest ERROR : ${error}`);
@@ -107,10 +108,10 @@ export function Search({token, userip}) {
       }
       </div>
       <hr/>
-      <h3>지하철 실시간 도착정보</h3>
+      <h3>🚇 지하철 실시간 도착정보</h3>
       <br/>
       <RealtimeMetro realtimemetroData={realtimemetroData} />
-      <FirstAndLastMetro subwayid={subwayid} subwayline={subwayline} />
+      <FirstAndLastMetro subwayInfo={subwayInfo} subwayline={subwayline} query={query} />
       <br />
       <SubwayAmenities subwayid={subwayid} />
       <SubwayAddress subwayname={subwayname} />

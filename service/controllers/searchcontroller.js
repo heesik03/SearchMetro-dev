@@ -55,6 +55,7 @@ const getSubwayData = async (req, res) => {
 
         res.send({
             realtime : realTimeSubwayData,
+            subwayinfo : SubwayInfoData,
             id : SubwayId,
             name : SubwayName,
             line : SubwayLine,

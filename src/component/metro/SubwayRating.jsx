@@ -49,8 +49,8 @@ export function SubwayRating({query , token}) {
           <hr />
           <h3><strong>{query.slice(-1)==='역' ? `${query}` :  `${query}역`}</strong> 의견 작성</h3> {/* 마지막 글자가 역이 아닐 시엔 '역' 붙이기 */}
           <br />
-          <h4>평점 작성</h4>
-          <span style={{fontSize : "17px"}}><FaStar/> {ratingAverage.toFixed(2)} ({ratingUserCount}명 참여)</span> {/* 소숫점 2자리까지만 */}
+          <h4>🌟 평점 작성</h4>
+          <span><FaStar/> {ratingAverage.toFixed(2)} ({ratingUserCount}명 참여)</span> {/* 소숫점 2자리까지만 */}
           {
               [...Array(5)].map((_, star) => ( // 0~4까지의 배열 생성, - : value 생략
                 <span key={star} onClick={() => setStarScore(star + 1)}>

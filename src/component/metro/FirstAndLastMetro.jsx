@@ -3,7 +3,7 @@ import Select from 'react-select';
 import { useState } from 'react';
 import { uplndnlnOptions, dayofweekOptions, trainlineOptions } from "../../filters/SelectOptions";
 
-export function FirstAndLastMetro({subwayid , subwayline}) {
+export function FirstAndLastMetro({subwayInfo , subwayline, query}) {
     const [uplndnln , setUplnDnln] = useState('');
     const [dayofweek, setDayofWeek] = useState('');
     const [trainline, setTrainLine] = useState('');
@@ -19,8 +19,11 @@ export function FirstAndLastMetro({subwayid , subwayline}) {
             return alert("값을 전부 넣어주세요.");
         }
         try {
+            const filterSubwayInfoID = subwayInfo // 지하철 정보에서 맞는 호선을 찾은 후 지하철역 id를 추출
+                .filter(info => info.LINE_NUM.replace(/^0/, '') === trainline)
+                .map(info => info.STATION_CD);
             const SearchFirstandLastResponse = await axios.get(
-                `http://localhost:8080/search/FirstAndLast?subwayid=${subwayid}&uplndnln=${uplndnln}&dayofweek=${dayofweek}&trainline=${trainline}`
+                `http://localhost:8080/search/FirstAndLast?subwayid=${filterSubwayInfoID[0]}&uplndnln=${uplndnln}&dayofweek=${dayofweek}&trainline=${trainline}`
             );
             if (!SearchFirstandLastResponse.data.Info.RESULT) {
                 setFirstAndLast(SearchFirstandLastResponse.data.Info);
@@ -53,7 +56,7 @@ export function FirstAndLastMetro({subwayid , subwayline}) {
             <ul style={{ listStyleType: 'none', paddingLeft: 0 }}> {/* li 점 지우기, 왼쪽 padding 지우기 */}
                 <br />
                 <li>
-                    <h4>첫차 정보</h4>
+                    <h4>🌄 첫차 정보</h4>
                     <p style={{ fontWeight: 'bold' }}>
                         첫차 시간 : <span style={{ color: 'blue' }}> {formatTime(firstandlast.FSTT_HRM)} </span>
                     </p>
@@ -62,7 +65,7 @@ export function FirstAndLastMetro({subwayid , subwayline}) {
                 </li>
                 <br />
                 <li>
-                    <h4>막차 정보</h4>
+                    <h4>🌃 막차 정보</h4>
                     <p style={{ fontWeight: 'bold' }}> 
                         막차 시간 : <span style={{ color: 'red' }}> {formatTime(firstandlast.LSTTM_HRM)} </span>
                     </p>
@@ -80,6 +83,8 @@ export function FirstAndLastMetro({subwayid , subwayline}) {
 
     return (
         <div>
+            <h4>⏰ <strong>{query.slice(-1)==='역' ? `${query}` :  `${query}역`}</strong> 첫차 , 막차 정보</h4>
+            <br />
             <Select options={uplndnlnOptions} onChange={selectedOption => setUplnDnln(selectedOption.value)} placeholder='상/하행 선택' />
             <Select options={dayofweekOptions} onChange={selectedOption => setDayofWeek(selectedOption.value)} placeholder='요일 선택' />
             <Select options={filteredSubwayline} onChange={selectedOption => setTrainLine(selectedOption.value)} placeholder='호선 선택' />

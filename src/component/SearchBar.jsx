@@ -48,7 +48,7 @@ export function SearchBar({token}) {
                     if (searchQuery.trim()) { // 검색어가 비어 있지 않으면
                         navigate(`/search?query=${encodeURIComponent(searchQuery)}`); // 쿼리 파라미터로 검색어를 전달
                     }
-                    }}>검색</button>
+                    }}>🔍</button>
             </div>
             {searchSuggestions.length ? (
                 <ul className="suggestions-ul" style={{ paddingLeft: 0 }}>

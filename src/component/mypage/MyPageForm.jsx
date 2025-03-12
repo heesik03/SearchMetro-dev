@@ -67,26 +67,25 @@ export function MyPageForm({ username, useremail, userjoinDate, updateUserName, 
 
     return (
         <div>
+            <h3>🎉 <strong>{username}</strong> 님 안녕하세요!</h3>
             <ul style={{ listStyleType: 'square' }}>
-                <h3>{username} 님 안녕하세요!</h3>
-                <li>계정 id : {userid}</li>
                 <li>이메일 : {useremail}</li>
                 <li>계정 생성일 : {userjoinDate}</li>
             </ul>
             <hr />  {/* 밑줄 */}
             <form>
-                <h4>닉네임 변경</h4>
+                <h4>🔁 닉네임 변경</h4>
                 <br />
                 <p>- 현재 닉네임 : {username}</p>
-                <input type="text" id="name-Form" placeholder="닉네임을 입력해주세요" onChange={(e) => setChangeUsername(e.target.value)} required/>
+                <input type="text" id="name-Form" placeholder="닉네임을 입력해주세요" maxLength="20" onChange={(e) => setChangeUsername(e.target.value)} required/>
                 <label className="form-label" htmlFor="name-Form" />
                 <button type="submit" onClick={patchUserName}>변경</button>   
             </form>
             <hr /> {/* 밑줄 */}
             <form>
-                <h4>비밀번호 변경</h4>
+                <h4>🔁 비밀번호 변경</h4>
                 <div className="form-group row" id="password-change">
-                    <label htmlFor="inputPassword1" className="col-sm-2 col-form-label">이전 비밀번호 입력</label>
+                    <label htmlFor="inputPassword1" className="col-sm-2 col-form-label" style={{marginTop: "9px"}}>이전 비밀번호 입력</label>
                     <div className="col-sm-10">
                         <input 
                             type="password" className="form-control" id="inputPassword1" 
@@ -95,7 +94,7 @@ export function MyPageForm({ username, useremail, userjoinDate, updateUserName, 
                         />
                     </div>
                     {/* css로 간격 주기 */}
-                    <label htmlFor="inputPassword2" className="col-sm-2 col-form-label">새로운 비밀번호 입력</label>
+                    <label htmlFor="inputPassword2" className="col-sm-2 col-form-label" style={{marginTop: "6px"}} >새로운 비밀번호 입력</label>
                     <div className="col-sm-10">
                         <input 
                             type="password" className="form-control" id="inputPassword2"
@@ -104,7 +103,7 @@ export function MyPageForm({ username, useremail, userjoinDate, updateUserName, 
                         />
                     </div>
                     {/* css로 간격 주기 */}
-                    <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">비밀번호 확인</label>
+                    <label htmlFor="inputPassword3" className="col-sm-2 col-form-label" style={{marginTop: "6px"}}>비밀번호 확인</label>
                     <div className="col-sm-10">
                         <input 
                             type="password" className="form-control" id="inputPassword3"
@@ -117,7 +116,7 @@ export function MyPageForm({ username, useremail, userjoinDate, updateUserName, 
                 <button type="submit" className="btn btn-info" onClick={patchUserPassword}>수정</button>
             </form>
             <hr />  {/* 밑줄 */}
-            <h4>게시글 관리</h4>
+            <h4>📖 게시글 관리</h4>
             <br />
             <table className="table table-striped" id="userpage-table">
                 <thead>
@@ -125,7 +124,7 @@ export function MyPageForm({ username, useremail, userjoinDate, updateUserName, 
                         <th scope="col">지하철역</th>
                         <th scope="col">내용</th>
                         <th scope="col">작성일</th>
-                        <th scope="col">삭제</th>
+                        <th scope="col" style={{textAlign: 'center'}}>삭제</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -143,8 +142,8 @@ export function MyPageForm({ username, useremail, userjoinDate, updateUserName, 
                                 </a>
                             </td>
                             <td>{comment.timestamp}</td>
-                            <td>
-                                <button type="submit" className="btn btn-danger btn-sm" onClick={() => deleteMypageComment(comment._id)}>
+                            <td style={{textAlign: 'center'}}>
+                                <button type="submit" className="btn btn-outline-danger btn-sm" onClick={() => deleteMypageComment(comment._id)}>
                                     X
                                 </button>
                             </td>

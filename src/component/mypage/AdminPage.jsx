@@ -49,7 +49,7 @@ export function AdminPage({ children }) {
             <br />
             {children ?? <p>마이페이지 오류입니다.</p>}
             <hr />  {/* 밑줄 */}
-            <h4>유저 관리</h4>
+            <h4>❗유저 관리</h4>
             <br />
             <table className="table table-striped" id="userpage-table">
                 <thead>
@@ -58,7 +58,7 @@ export function AdminPage({ children }) {
                         <th scope="col">id</th>
                         <th scope="col">이메일</th>
                         <th scope="col">가입일</th>
-                        <th scope="col">삭제</th>
+                        <th scope="col" style={{textAlign: 'center'}}>삭제</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,7 +68,7 @@ export function AdminPage({ children }) {
                             <td>{user._id} </td>
                             <td>{user.email}</td>
                             <td>{user.joinDate}</td>
-                            <td>
+                            <td style={{textAlign: 'center'}}>
                                 <button type="submit" className="btn btn-danger btn-sm" onClick={() => removeUser(user._id)}>
                                     X
                                 </button>

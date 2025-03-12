@@ -12,14 +12,14 @@ export function SubwayAmenities({ subwayid }) {
   if (!amenities) {
     return (
       <>
-          <h4>편의시설 정보가 없습니다.</h4>
+          <h5>* 편의시설 정보가 없는 역입니다.</h5>
           <hr />
       </>
   )
   }
   return (
     <div>
-      <h3>{amenities.station_name} 편의시설 정보</h3>
+      <h3>🚉 {amenities.station_name} 편의시설 정보</h3>
       <p style={{ fontSize: '0.9rem', color: 'gray' }}>2025-03-07 기준</p>
       <div className="table-container">
         <table className="table">

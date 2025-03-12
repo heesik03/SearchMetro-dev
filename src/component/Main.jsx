@@ -29,7 +29,7 @@ export function Main({token}) {
         <div className="container">
             {bookmarkArray?.length? (
                 <ul className="list-group">
-                    <h4>북마크한 지하철역</h4>
+                    <h4>🔖 북마크한 지하철역</h4>
                     {bookmarkArray.map((bookmark) => (
                         <li className="list-group-item" key={bookmark}>
                             <a href={`search?query=${bookmark}`} style={{ textDecoration: 'none' }} id="main-bookmark">
@@ -43,7 +43,9 @@ export function Main({token}) {
                 <p></p>
             )}
             <hr />
-            <SearchBar token={token} />
+            <div id="mainpage-searchBar">
+                <SearchBar token={token} />
+            </div>
         </div>
     );
 }
