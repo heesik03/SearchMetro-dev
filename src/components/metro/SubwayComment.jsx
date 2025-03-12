@@ -217,18 +217,24 @@ export function SubwayComment({ query , userip, token}) {
                     </div>
                 ))}
                 <div className="pagination-container">
-                    <ReactPaginate
-                        containerClassName={"pagination"} 
-                        pageClassName={"page-item"}
-                        activeClassName={"active"}
-                        breakLabel="..." // 페이지가 많을 때 '...'을 표시
-                        nextLabel=">"
-                        onPageChange={handlePageClick}
-                        pageRangeDisplayed={5}  // 한 번에 보여줄 페이지 버튼의 수
-                        pageCount={pageCount} // 전체 페이지 수
-                        previousLabel="<"
-                        renderOnZeroPageCount={null} // 페이지가 없을 때 페이지네이션을 렌더링하지 않음
-                    />
+                    {
+                        commentList?.length>=10 ? (
+                            <ReactPaginate
+                            containerClassName={"pagination"} 
+                            pageClassName={"page-item"}
+                            activeClassName={"active"}
+                            breakLabel="..." // 페이지가 많을 때 '...'을 표시
+                            nextLabel=">"
+                            onPageChange={handlePageClick}
+                            pageRangeDisplayed={5}  // 한 번에 보여줄 페이지 버튼의 수
+                            pageCount={pageCount} // 전체 페이지 수
+                            previousLabel="<"
+                            renderOnZeroPageCount={null} // 페이지가 없을 때 페이지네이션을 렌더링하지 않음
+                        />
+                        ) : (
+                            <p></p>
+                        )
+                    }
                 </div>
             </div>
         </div>

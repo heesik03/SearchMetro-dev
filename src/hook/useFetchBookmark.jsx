@@ -8,7 +8,7 @@ export function useFetchBookmarks(token, userid) {
         const fetchBookmark = async () => {
             if (token && userid) {
                 const getBookmarkResponse = await axios.get(`http://localhost:8080/?userid=${userid}`);
-                setBookmarkArray(getBookmarkResponse.data.bookmarkData);
+                setBookmarkArray(getBookmarkResponse.data.bookmarkData.reverse());
             }
         };
         fetchBookmark();

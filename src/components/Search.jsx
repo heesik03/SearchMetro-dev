@@ -78,6 +78,9 @@ export function Search({token, userip}) {
     <div className="container">
       <SearchBar token={token} userid={userid} />
       <hr />
+      <p style={{ fontSize: '0.9rem', color: 'gray' }}>
+        * 모든 지하철 정보는 서울시 오픈 API를 통해 제공되며, 서버나 API 상태에 따라 정보가 부정확할 수 있습니다.
+      </p>
       <form className="title-bookmark-form">
         <h3>검색한 역 : <strong>{query ? `${query}` : '찾을 수 없음'}</strong></h3>
           <svg 

@@ -5,9 +5,12 @@
         margin-left: auto;
         margin-right: auto;
     }
-  }
+}
 
 @media (max-width: 600px) {
+    .bookmark-container {
+        width : 70% !important;
+    }
     #login-container {
         margin-bottom : 80% !important;
     }
@@ -34,9 +37,15 @@
     background: linear-gradient(to right, #e2e8f0, #e5e7eb);
 }
 
+.bookmark-container {
+    width : 33%;
+    border: 1px solid #ced4da; /* 얇은 회색 테두리 */
+    border-radius: 4px; /* 둥근 모서리 */
+}
+
 #mainpage-searchBar { /* 메인페이지 검색창 */
-    margin-top : 10%;
-    margin-bottom : 10%;
+    margin-top : 7%;
+    margin-bottom : 7%;
 }
 
 #password-change div { /* 마이페이지 비밀번호 변경 */
@@ -248,7 +257,7 @@ th {
     cursor: pointer;
 }
   
-.active {
+.active , .active-Bookmark {
     background-color: #50bcdf;
     border-radius: 50%;
 }

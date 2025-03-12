@@ -76,7 +76,8 @@ export function MyPageForm({ username, useremail, userjoinDate, updateUserName, 
             <form>
                 <h4>🔁 닉네임 변경</h4>
                 <br />
-                <p>- 현재 닉네임 : {username}</p>
+                <p style={{fontSize : "1.2rem"}}><strong>현재 닉네임 : {username}</strong></p>
+                <br />
                 <input type="text" id="name-Form" placeholder="닉네임을 입력해주세요" maxLength="20" onChange={(e) => setChangeUsername(e.target.value)} required/>
                 <label className="form-label" htmlFor="name-Form" />
                 <button type="submit" onClick={patchUserName}>변경</button>   
@@ -113,7 +114,7 @@ export function MyPageForm({ username, useremail, userjoinDate, updateUserName, 
                     </div>
                 </div>
 
-                <button type="submit" className="btn btn-info" onClick={patchUserPassword}>수정</button>
+                <button type="submit" className="btn btn-info" onClick={patchUserPassword}>변경</button>
             </form>
             <hr />  {/* 밑줄 */}
             <h4>📖 게시글 관리</h4>

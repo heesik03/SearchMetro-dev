@@ -84,6 +84,9 @@ export function FirstAndLastMetro({subwayInfo , subwayline, query}) {
     return (
         <div>
             <h4>⏰ <strong>{query.slice(-1)==='역' ? `${query}` :  `${query}역`}</strong> 첫차 , 막차 정보</h4>
+            <p style={{ fontSize: '0.9rem', color: 'gray' }}>
+                * 1~9 호선 지하철 역 정보만 제공합니다.
+            </p>
             <br />
             <Select options={uplndnlnOptions} onChange={selectedOption => setUplnDnln(selectedOption.value)} placeholder='상/하행 선택' />
             <Select options={dayofweekOptions} onChange={selectedOption => setDayofWeek(selectedOption.value)} placeholder='요일 선택' />
