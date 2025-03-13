@@ -13,6 +13,7 @@ export const MetroLineColor = [
     { "name": "경의중앙선", "color": "#77C4A3" },
     { "name": "경춘선", "color": "#0C8E72" },
     { "name": "수인분당선", "color": "#F5A200" },
+    { "name": "수의분당선", "color": "#F5A200" },
     { "name": "경강선", "color": "#003DA5" },
     { "name": "서해선", "color": "#81A914" },
     { "name": "신림선", "color": "#6789CA" },

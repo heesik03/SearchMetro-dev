@@ -25,6 +25,9 @@ export function SubwayRating({query , token}) {
     const addRating = async() => {
       if (!token) 
         return alert("별점은 로그인 후 가능합니다.");
+      if (starScore<=0 || starScore>5) {
+        return alert("별점은 1~5점으로만 매길 수 있습니다.");
+      }
       try {
         const addRatingResponse = await axios.post(`http://localhost:8080/search/rating`, {
           query : query,

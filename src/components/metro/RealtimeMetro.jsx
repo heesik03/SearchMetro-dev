@@ -37,7 +37,7 @@ export function RealtimeMetro({realtimemetroData}) {
                   onClick={() => filterRealtimeData(updn)}
                   key={updn}
                   style={{
-                    color: isFilteredUpdn === updn ? '#5EACD1' : 'black',
+                    color: isFilteredUpdn === updn ? 'blue' : 'black',
                     fontWeight: isFilteredUpdn === updn ? 'bold' : 'normal', // fontWeight로 변경
                   }}
                 >
